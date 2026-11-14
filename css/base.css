@@ -1,0 +1,272 @@
+/* ==========================================================
+   DIW · UT1 PR1 — Tienda online de ropa (mobile-first)
+   base.css — variables, tipografía y layout común
+   (cabecera fija + barra de navegación inferior)
+   BEM + mobile-first · WCAG 2.1 AA
+   ========================================================== */
+
+/* ---------- Variables ---------- */
+:root {
+  /* Paleta */
+  --negro: #000000;
+  --beige: #FAF6F0;
+  --gris: #F2F2F2;
+  --rojo: #D9534F;
+
+  /* Tipografías */
+  --fuente-titulos: 'Emberley', cursive;
+  --fuente-texto: 'Open Sans', sans-serif;
+
+  /* Layout */
+  --alto-cabecera: 64px;
+  --alto-nav: 72px;
+  --ancho-max: 992px;
+  --radio: 12px;
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--beige);
+  color: var(--negro);
+  font-family: var(--fuente-texto);
+  font-size: 14px;
+  line-height: 1.5;
+  /* hueco para cabecera y barra inferior (fijas) */
+  padding-top: calc(var(--alto-cabecera) + 8px);
+  padding-bottom: calc(var(--alto-nav) + 12px);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-weight: 400;
+  font-family: var(--fuente-titulos);
+}
+
+p {
+  margin: 0;
+}
+
+img,
+svg {
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--negro);
+  outline-offset: 2px;
+}
+
+/* ---------- Utilidades ---------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Enlace "saltar al contenido" */
+.saltar {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 100;
+  padding: 10px 16px;
+  background: var(--negro);
+  color: var(--beige);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 0 0 var(--radio) var(--radio);
+}
+
+.saltar:focus {
+  top: 0;
+}
+
+/* ---------- Contenedor ---------- */
+.contenedor {
+  width: 100%;
+  max-width: var(--ancho-max);
+  margin-inline: auto;
+  padding: 0 16px 24px;
+}
+
+/* Título de pantalla (Emberley 20px) */
+.titulo-pantalla {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+/* ---------- Cabecera fija ---------- */
+.cabecera {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--alto-cabecera);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 16px;
+  background-color: var(--beige);
+  border-bottom: 2px solid var(--negro);
+}
+
+/* Logo de marca: insignia (SVG) + wordmark */
+.cabecera__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.logo__icono {
+  width: 36px;
+  height: 36px;
+  flex: none;
+}
+
+.logo__texto {
+  font-family: var(--fuente-titulos);
+  font-size: 22px;
+  letter-spacing: 2px;
+}
+
+/* Enlace al carrito: target táctil de 44px */
+.cabecera__carrito {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  text-decoration: none;
+}
+
+.cabecera__icono {
+  width: 26px;
+  height: 26px;
+}
+
+/* Badge contador (rojo, texto blanco) */
+.cabecera__badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--rojo);
+  color: #ffffff;
+  font-family: var(--fuente-texto);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  border: 2px solid var(--beige);
+  border-radius: 999px;
+}
+
+/* ---------- Barra inferior fija ---------- */
+.nav-inferior {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--alto-nav);
+  z-index: 20;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: var(--gris);
+  border-top: 2px solid var(--negro);
+}
+
+.nav-inferior__tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-height: 44px;
+  text-decoration: none;
+  font-size: 11px;
+  line-height: 1.2;
+  color: var(--negro);
+}
+
+.nav-inferior__tab svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Tab activa (aria-current="page") */
+.nav-inferior__tab[aria-current="page"] {
+  font-weight: 600;
+  background-color: var(--beige);
+  box-shadow: inset 0 3px 0 var(--negro);
+}
+
+/* ---------- Media queries de layout común ---------- */
+@media (min-width: 600px) {
+  .contenedor {
+    padding: 0 24px 32px;
+  }
+}
+
+@media (min-width: 992px) {
+  /* Cabecera algo más amplia */
+  .cabecera {
+    padding: 0 32px;
+  }
+
+  /* Logo algo mayor */
+  .logo__icono {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logo__texto {
+    font-size: 24px;
+  }
+
+  .contenedor {
+    padding: 0 32px 48px;
+  }
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explorar productos por categoría — práctica DIW UT1 PR1.">
+  <!-- Imágenes de producto: Unsplash (uso libre) -->
+  <title>Explorar · Tienda PR1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Emberley&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/pantallas.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="cabecera">
+    <a class="cabecera__logo" href="index.html" aria-label="MODA — ir a la portada">
+      <svg class="logo__icono" viewBox="0 0 48 48" aria-hidden="true">
+        <circle cx="24" cy="24" r="22" fill="#FAF6F0" stroke="#000000" stroke-width="3"></circle>
+        <g fill="none" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M24 17.5c0-3 1.8-4.7 4-4.7 1.9 0 3.2 1.4 3.2 3.2 0 2.8-7.2 4.6-7.2 1.5"></path>
+          <path d="M24 19 13 29.5h22L24 19z"></path>
+        </g>
+      </svg>
+      <span class="logo__texto">MODA</span>
+    </a>
+    <a class="cabecera__carrito" href="carrito.html" aria-label="Ver carrito de compra">
+      <svg class="cabecera__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="9" cy="20" r="1.5"></circle>
+        <circle cx="17" cy="20" r="1.5"></circle>
+        <path d="M3 5h2l2.3 11.1a1 1 0 0 0 1 .9h8.9a1 1 0 0 0 1-.8L20 9H6"></path>
+      </svg>
+      <span class="cabecera__badge" aria-hidden="true">0</span>
+    </a>
+  </header>
+
+  <main id="contenido" class="contenedor">
+    <h1 class="titulo-pantalla">Explorar</h1>
+
+    <!-- BUSCAR + FILTRO -->
+    <div class="buscador">
+      <label class="sr-only" for="busqueda">Buscar productos</label>
+      <input class="buscador__input" type="search" id="busqueda" name="busqueda" placeholder="BUSCAR" autocomplete="off">
+      <button type="button" class="buscador__filtro" aria-expanded="false" aria-controls="panel-filtro">Filtro</button>
+    </div>
+
+    <!-- PANEL FILTRO (oculto por defecto) -->
+    <div class="panel-filtro" id="panel-filtro" hidden>
+      <fieldset class="panel-filtro__fieldset">
+        <legend class="panel-filtro__titulo">Categorías</legend>
+        <label class="panel-filtro__opcion"><input class="panel-filtro__checkbox" type="checkbox" value="M" checked>M · Mujer</label>
+        <label class="panel-filtro__opcion"><input class="panel-filtro__checkbox" type="checkbox" value="H" checked>H · Hombre</label>
+        <label class="panel-filtro__opcion"><input class="panel-filtro__checkbox" type="checkbox" value="N" checked>N · Niños</label>
+      </fieldset>
+    </div>
+
+    <!-- M · MUJER -->
+    <section class="seccion" data-cat="M" aria-labelledby="seccion-m">
+      <h2 class="seccion__titulo" id="seccion-m">M · Mujer</h2>
+      <div class="grid-prod">
+        <article class="prod" data-nombre="Camiseta blanca">
+          <div class="prod__media" data-fav="w1" role="button" tabindex="0" aria-label="Guardar Camiseta blanca en favoritos">
+            <img src="assets/img-w1.jpg" alt="Camiseta blanca (foto de producto)">
+            <button type="button" class="prod__add" data-add="w1" aria-label="Añadir Camiseta blanca al carrito">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+            </button>
+          </div>
+          <h3 class="prod__nombre">Camiseta blanca</h3>
+          <p class="prod__precio">15,99 €</p>
+        </article>
+
+        <article class="prod" data-nombre="Camiseta estampada">
+          <div class="prod__media" data-fav="w2" role="button" tabindex="0" aria-label="Guardar Camiseta estampada en favoritos">
+            <img src="assets/img-w2.jpg" alt="Camiseta estampada (foto de producto)">
+            <button type="button" class="prod__add" data-add="w2" aria-label="Añadir Camiseta estampada al carrito">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+            </button>
+          </div>
+          <h3 class="prod__nombre">Camiseta estampada</h3>
+          <p class="prod__precio">19,99 €</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- H · HOMBRE -->
+    <section class="seccion" data-cat="H" aria-labelledby="seccion-h">
+      <h2 class="seccion__titulo" id="seccion-h">H · Hombre</h2>
+      <div class="grid-prod">
+        <article class="prod" data-nombre="Pantalón vaquero">
+          <div class="prod__media" data-fav="h1" role="button" tabindex="0" aria-label="Guardar Pantalón vaquero en favoritos">
+            <img src="assets/img-h1.jpg" alt="Pantalón vaquero (foto de producto)">
+            <button type="button" class="prod__add" data-add="h1" aria-label="Añadir Pantalón vaquero al carrito">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+            </button>
+          </div>
+          <h3 class="prod__nombre">Pantalón vaquero</h3>
+          <p class="prod__precio">34,99 €</p>
+        </article>
+
+        <article class="prod" data-nombre="Pantalón chino">
+          <div class="prod__media" data-fav="h2" role="button" tabindex="0" aria-label="Guardar Pantalón chino en favoritos">
+            <img src="assets/img-h2.jpg" alt="Pantalón chino (foto de producto)">
+            <button type="button" class="prod__add" data-add="h2" aria-label="Añadir Pantalón chino al carrito">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+            </button>
+          </div>
+          <h3 class="prod__nombre">Pantalón chino</h3>
+          <p class="prod__precio">29,99 €</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- N · NIÑOS -->
+    <section class="seccion" data-cat="N" aria-labelledby="seccion-n">
+      <h2 class="seccion__titulo" id="seccion-n">N · Niños</h2>
+      <div class="grid-prod">
+        <article class="prod" data-nombre="Jumper infantil">
+          <div class="prod__media" data-fav="n1" role="button" tabindex="0" aria-label="Guardar Jumper infantil en favoritos">
+            <img src="assets/img-n1.jpg" alt="Jumper infantil (foto de producto)">
+            <button type="button" class="prod__add" data-add="n1" aria-label="Añadir Jumper infantil al carrito">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+            </button>
+          </div>
+          <h3 class="prod__nombre">Jumper infantil</h3>
+          <p class="prod__precio">18,99 €</p>
+        </article>
+
+        <article class="prod" data-nombre="Vestido infantil">
+          <div class="prod__media" data-fav="n2" role="button" tabindex="0" aria-label="Guardar Vestido infantil en favoritos">
+            <img src="assets/img-n2.jpg" alt="Vestido infantil (foto de producto)">
+            <button type="button" class="prod__add" data-add="n2" aria-label="Añadir Vestido infantil al carrito">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+            </button>
+          </div>
+          <h3 class="prod__nombre">Vestido infantil</h3>
+          <p class="prod__precio">22,99 €</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <nav class="nav-inferior" aria-label="Navegación principal">
+    <a class="nav-inferior__tab" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      <span>Inicio</span>
+    </a>
+    <a class="nav-inferior__tab" href="explorar.html" aria-current="page">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <span>Explorar</span>
+    </a>
+    <a class="nav-inferior__tab" href="favoritos.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+      </svg>
+      <span>Favoritos</span>
+    </a>
+    <a class="nav-inferior__tab" href="perfil.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+      <span>Perfil</span>
+    </a>
+  </nav>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
