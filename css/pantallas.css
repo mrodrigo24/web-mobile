@@ -117,10 +117,10 @@
   border-radius: 999px;
 }
 
-/* Botón de añadir (redondo, superpuesto a la foto) */
+/* Botón de añadir (redondo, superpuesto a la foto; bajo el corazón) */
 .prod__add {
   position: absolute;
-  top: 8px;
+  top: 60px;
   right: 8px;
   z-index: 1;
   width: 44px;
@@ -144,31 +144,43 @@
   background-color: var(--gris);
 }
 
-/* Foto táctil: guardar en favoritos (Inicio y Explorar) */
-.prod__media[data-fav] {
-  cursor: pointer;
+/* Precio final de oferta: rojo y negrita (solo artículos en oferta) */
+.prod__precio-final {
+  color: var(--rojo);
+  font-weight: 600;
 }
 
-/* Badge de "en favoritos": corazón rojo en círculo beige (abajo-derecha) */
-.prod__badge-fav {
+/* Botón de favorito (corazón, arriba-derecha de la foto) */
+.prod__fav {
   position: absolute;
-  bottom: 8px;
+  top: 8px;
   right: 8px;
-  z-index: 1;
-  width: 34px;
-  height: 34px;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--beige);
   border: 2px solid var(--negro);
   border-radius: 50%;
-  pointer-events: none;
+  color: var(--negro);
+  padding: 0;
+  cursor: pointer;
 }
 
-.prod__badge-fav svg {
-  width: 16px;
-  height: 16px;
+.prod__fav svg {
+  width: 20px;
+  height: 20px;
+}
+
+.prod__fav:hover {
+  background-color: var(--gris);
+}
+
+/* Estado activo: corazón relleno rojo */
+.prod__fav.is-fav svg {
+  fill: var(--rojo);
 }
 
 /* ---------- Explorar: buscador + filtro ---------- */

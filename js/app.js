@@ -10,7 +10,7 @@
   /* ---------- Catálogo ---------- */
   const PRODUCTOS = {
     w1: { nombre: 'Camiseta blanca', precio: 15.99, cat: 'M', img: 'assets/img-w1.jpg' },
-    w2: { nombre: 'Camiseta estampada', precio: 19.99, cat: 'M', img: 'assets/img-w2.jpg' },
+    w2: { nombre: 'Camisa estampada', precio: 19.99, cat: 'M', img: 'assets/img-w2.jpg' },
     h1: { nombre: 'Pantalón vaquero', precio: 34.99, cat: 'H', img: 'assets/img-h1.jpg' },
     h2: { nombre: 'Pantalón chino', precio: 29.99, cat: 'H', img: 'assets/img-h2.jpg' },
     n1: { nombre: 'Jumper infantil', precio: 18.99, cat: 'N', img: 'assets/img-n1.jpg' },
@@ -85,7 +85,8 @@
   /* ---------- Referencias del DOM ---------- */
   const $ = function (selector) { return document.querySelector(selector); };
 
-  const contador = $('.cabecera__badge');
+  const contador = $('.cabecera__carrito .cabecera__badge');
+  const contadorFavs = $('.cabecera__fav .cabecera__badge');
   const enlaceCarrito = $('.cabecera__carrito');
   const listaCarrito = $('.lista-carrito');
   const valorTotal = $('.total__valor');
@@ -142,12 +143,14 @@
     if (botonFin) botonFin.disabled = n === 0;
   }
 
-  /* ---------- Contador de cabecera + actualización global ---------- */
+  /* ---------- Contadores de cabecera + actualización global ---------- */
   function actualizar() {
     const cart = leerCarrito();
     const n = unidades(cart);
+    const nfav = leerFavs().length;
 
     if (contador) contador.textContent = String(n);
+    if (contadorFavs) contadorFavs.textContent = String(nfav);
     if (enlaceCarrito) {
       enlaceCarrito.setAttribute(
         'aria-label',
@@ -173,10 +176,10 @@
       return;
     }
 
-    // Tocar la foto de un producto: guardar en favoritos (Inicio y Explorar)
-    const mediaFav = ev.target.closest('.prod__media[data-fav]');
-    if (mediaFav) {
-      anadirFavorito(mediaFav.getAttribute('data-fav'));
+    // Corazón de cada tarjeta: guardar en favoritos (solo añade; para quitar: Favoritos)
+    const fav = ev.target.closest('.prod__fav[data-fav]');
+    if (fav) {
+      anadirFavorito(fav.getAttribute('data-fav'));
       return;
     }
 
@@ -213,17 +216,6 @@
       delete cart[id];
       guardarCarrito(cart);
       actualizar();
-    }
-  });
-
-  /* Teclado: Enter/Espacio sobre la foto táctil (role="button") */
-  document.addEventListener('keydown', function (ev) {
-    if (ev.key !== 'Enter' && ev.key !== ' ' && ev.key !== 'Spacebar') return;
-    const mediaFav = ev.target.closest('.prod__media[data-fav]');
-    // Solo si el foco está en la propia foto (no en el botón "+" que vive dentro)
-    if (mediaFav && ev.target === mediaFav) {
-      ev.preventDefault();
-      anadirFavorito(mediaFav.getAttribute('data-fav'));
     }
   });
 
@@ -333,22 +325,13 @@
     if (vacioFavoritos) vacioFavoritos.hidden = listaFavoritos.children.length > 0;
   }
 
-  /* ---------- Favoritos: badge de corazón sobre las fotos (Inicio y Explorar) ---------- */
-  function actualizarBadgesFav() {
+  /* ---------- Favoritos: estado de los botones corazón (Inicio y Explorar) ---------- */
+  function pintarFavoritos() {
     const favs = leerFavs();
-    document.querySelectorAll('.prod__media[data-fav]').forEach(function (media) {
-      const id = media.getAttribute('data-fav');
-      const marcado = favs.indexOf(id) !== -1;
-      const badge = media.querySelector('.prod__badge-fav');
-      if (marcado && !badge) {
-        const nuevo = document.createElement('span');
-        nuevo.className = 'prod__badge-fav';
-        nuevo.setAttribute('aria-hidden', 'true');
-        nuevo.innerHTML = CORAZON_SVG;
-        media.appendChild(nuevo);
-      } else if (!marcado && badge) {
-        badge.remove();
-      }
+    document.querySelectorAll('.prod__fav[data-fav]').forEach(function (btn) {
+      const activo = favs.indexOf(btn.getAttribute('data-fav')) !== -1;
+      btn.classList.toggle('is-fav', activo);
+      btn.setAttribute('aria-pressed', String(activo));
     });
   }
 
@@ -358,7 +341,8 @@
     if (favs.indexOf(id) !== -1) return; // ya está guardado: no pasa nada
     favs.push(id);
     guardarFavs(favs);
-    actualizarBadgesFav();
+    pintarFavoritos();
+    actualizar();
   }
 
   function quitarFavorito(id) {
@@ -366,7 +350,8 @@
     const favs = leerFavs();
     guardarFavs(favs.filter(function (x) { return x !== id; }));
     renderFavoritos();
-    actualizarBadgesFav();
+    pintarFavoritos();
+    actualizar();
   }
 
   /* ---------- Refuerzo de la tab activa (aria-current="page") ---------- */
@@ -384,6 +369,6 @@
 
   /* ---------- Arranque ---------- */
   if (listaFavoritos) renderFavoritos();
-  actualizarBadgesFav();
+  pintarFavoritos();
   actualizar();
 })();

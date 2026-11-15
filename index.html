@@ -26,6 +26,12 @@
       </svg>
       <span class="logo__texto">MODA</span>
     </a>
+    <a class="cabecera__fav" href="favoritos.html" aria-label="Ver favoritos">
+      <svg class="cabecera__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+      </svg>
+      <span class="cabecera__badge" aria-hidden="true">0</span>
+    </a>
     <a class="cabecera__carrito" href="carrito.html" aria-label="Ver carrito de compra">
       <svg class="cabecera__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <circle cx="9" cy="20" r="1.5"></circle>
@@ -51,27 +57,33 @@
         <h2 class="bloque__titulo" id="titulo-ofertas">Ofertas</h2>
         <div class="grid-prod">
           <article class="prod" data-nombre="Camiseta blanca">
-            <div class="prod__media" data-fav="w1" role="button" tabindex="0" aria-label="Guardar Camiseta blanca en favoritos">
+            <div class="prod__media">
               <img src="assets/img-w1.jpg" alt="Camiseta blanca (foto de producto)">
+              <button type="button" class="prod__fav" data-fav="w1" aria-pressed="false" aria-label="Guardar Camiseta blanca en favoritos">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--negro)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
               <span class="prod__badge">−25%</span>
               <button type="button" class="prod__add" data-add="w1" aria-label="Añadir Camiseta blanca al carrito">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
               </button>
             </div>
             <h3 class="prod__nombre">Camiseta blanca</h3>
-            <p class="prod__precio"><s class="prod__precio-antiguo">21,32 €</s>15,99 €</p>
+            <p class="prod__precio"><s class="prod__precio-antiguo">21,32 €</s><span class="prod__precio-final">15,99 €</span></p>
           </article>
 
           <article class="prod" data-nombre="Pantalón vaquero">
-            <div class="prod__media" data-fav="h1" role="button" tabindex="0" aria-label="Guardar Pantalón vaquero en favoritos">
+            <div class="prod__media">
               <img src="assets/img-h1.jpg" alt="Pantalón vaquero (foto de producto)">
+              <button type="button" class="prod__fav" data-fav="h1" aria-pressed="false" aria-label="Guardar Pantalón vaquero en favoritos">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--negro)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
               <span class="prod__badge">−10%</span>
               <button type="button" class="prod__add" data-add="h1" aria-label="Añadir Pantalón vaquero al carrito">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
               </button>
             </div>
             <h3 class="prod__nombre">Pantalón vaquero</h3>
-            <p class="prod__precio"><s class="prod__precio-antiguo">38,88 €</s>34,99 €</p>
+            <p class="prod__precio"><s class="prod__precio-antiguo">38,88 €</s><span class="prod__precio-final">34,99 €</span></p>
           </article>
         </div>
       </section>
@@ -79,20 +91,26 @@
       <section class="bloque" aria-labelledby="titulo-productos">
         <h2 class="bloque__titulo" id="titulo-productos">Productos</h2>
         <div class="grid-prod">
-          <article class="prod" data-nombre="Camiseta estampada">
-            <div class="prod__media" data-fav="w2" role="button" tabindex="0" aria-label="Guardar Camiseta estampada en favoritos">
-              <img src="assets/img-w2.jpg" alt="Camiseta estampada (foto de producto)">
-              <button type="button" class="prod__add" data-add="w2" aria-label="Añadir Camiseta estampada al carrito">
+          <article class="prod" data-nombre="Camisa estampada">
+            <div class="prod__media">
+              <img src="assets/img-w2.jpg" alt="Camisa estampada (foto de producto)">
+              <button type="button" class="prod__fav" data-fav="w2" aria-pressed="false" aria-label="Guardar Camisa estampada en favoritos">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--negro)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <button type="button" class="prod__add" data-add="w2" aria-label="Añadir Camisa estampada al carrito">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
               </button>
             </div>
-            <h3 class="prod__nombre">Camiseta estampada</h3>
+            <h3 class="prod__nombre">Camisa estampada</h3>
             <p class="prod__precio">19,99 €</p>
           </article>
 
           <article class="prod" data-nombre="Pantalón chino">
-            <div class="prod__media" data-fav="h2" role="button" tabindex="0" aria-label="Guardar Pantalón chino en favoritos">
+            <div class="prod__media">
               <img src="assets/img-h2.jpg" alt="Pantalón chino (foto de producto)">
+              <button type="button" class="prod__fav" data-fav="h2" aria-pressed="false" aria-label="Guardar Pantalón chino en favoritos">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--negro)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
               <button type="button" class="prod__add" data-add="h2" aria-label="Añadir Pantalón chino al carrito">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
               </button>
@@ -109,8 +127,11 @@
       <h2 class="bloque__titulo" id="titulo-novedades">Novedades</h2>
       <div class="grid-prod grid-prod--ancho">
         <article class="prod" data-nombre="Camiseta blanca">
-          <div class="prod__media" data-fav="w1" role="button" tabindex="0" aria-label="Guardar Camiseta blanca en favoritos">
+          <div class="prod__media">
             <img src="assets/img-w1.jpg" alt="Camiseta blanca (foto de producto)">
+            <button type="button" class="prod__fav" data-fav="w1" aria-pressed="false" aria-label="Guardar Camiseta blanca en favoritos">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--negro)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            </button>
             <button type="button" class="prod__add" data-add="w1" aria-label="Añadir Camiseta blanca al carrito">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
             </button>
@@ -119,20 +140,26 @@
           <p class="prod__precio">15,99 €</p>
         </article>
 
-        <article class="prod" data-nombre="Camiseta estampada">
-          <div class="prod__media" data-fav="w2" role="button" tabindex="0" aria-label="Guardar Camiseta estampada en favoritos">
-            <img src="assets/img-w2.jpg" alt="Camiseta estampada (foto de producto)">
-            <button type="button" class="prod__add" data-add="w2" aria-label="Añadir Camiseta estampada al carrito">
+        <article class="prod" data-nombre="Camisa estampada">
+          <div class="prod__media">
+            <img src="assets/img-w2.jpg" alt="Camisa estampada (foto de producto)">
+            <button type="button" class="prod__fav" data-fav="w2" aria-pressed="false" aria-label="Guardar Camisa estampada en favoritos">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--negro)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            </button>
+            <button type="button" class="prod__add" data-add="w2" aria-label="Añadir Camisa estampada al carrito">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
             </button>
           </div>
-          <h3 class="prod__nombre">Camiseta estampada</h3>
+          <h3 class="prod__nombre">Camisa estampada</h3>
           <p class="prod__precio">19,99 €</p>
         </article>
 
         <article class="prod" data-nombre="Pantalón vaquero">
-          <div class="prod__media" data-fav="h1" role="button" tabindex="0" aria-label="Guardar Pantalón vaquero en favoritos">
+          <div class="prod__media">
             <img src="assets/img-h1.jpg" alt="Pantalón vaquero (foto de producto)">
+            <button type="button" class="prod__fav" data-fav="h1" aria-pressed="false" aria-label="Guardar Pantalón vaquero en favoritos">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--negro)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            </button>
             <button type="button" class="prod__add" data-add="h1" aria-label="Añadir Pantalón vaquero al carrito">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
             </button>
@@ -142,8 +169,11 @@
         </article>
 
         <article class="prod" data-nombre="Pantalón chino">
-          <div class="prod__media" data-fav="h2" role="button" tabindex="0" aria-label="Guardar Pantalón chino en favoritos">
+          <div class="prod__media">
             <img src="assets/img-h2.jpg" alt="Pantalón chino (foto de producto)">
+            <button type="button" class="prod__fav" data-fav="h2" aria-pressed="false" aria-label="Guardar Pantalón chino en favoritos">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--negro)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            </button>
             <button type="button" class="prod__add" data-add="h2" aria-label="Añadir Pantalón chino al carrito">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
             </button>
@@ -153,8 +183,11 @@
         </article>
 
         <article class="prod" data-nombre="Jumper infantil">
-          <div class="prod__media" data-fav="n1" role="button" tabindex="0" aria-label="Guardar Jumper infantil en favoritos">
+          <div class="prod__media">
             <img src="assets/img-n1.jpg" alt="Jumper infantil (foto de producto)">
+            <button type="button" class="prod__fav" data-fav="n1" aria-pressed="false" aria-label="Guardar Jumper infantil en favoritos">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--negro)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            </button>
             <button type="button" class="prod__add" data-add="n1" aria-label="Añadir Jumper infantil al carrito">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
             </button>
@@ -164,8 +197,11 @@
         </article>
 
         <article class="prod" data-nombre="Vestido infantil">
-          <div class="prod__media" data-fav="n2" role="button" tabindex="0" aria-label="Guardar Vestido infantil en favoritos">
+          <div class="prod__media">
             <img src="assets/img-n2.jpg" alt="Vestido infantil (foto de producto)">
+            <button type="button" class="prod__fav" data-fav="n2" aria-pressed="false" aria-label="Guardar Vestido infantil en favoritos">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--negro)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            </button>
             <button type="button" class="prod__add" data-add="n2" aria-label="Añadir Vestido infantil al carrito">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
             </button>

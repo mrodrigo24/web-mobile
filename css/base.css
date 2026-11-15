@@ -166,8 +166,9 @@ a {
   letter-spacing: 2px;
 }
 
-/* Enlace al carrito: target táctil de 44px */
-.cabecera__carrito {
+/* Enlaces a carrito y favoritos: target táctil de 44px */
+.cabecera__carrito,
+.cabecera__fav {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -176,6 +177,11 @@ a {
   height: 44px;
   border-radius: 50%;
   text-decoration: none;
+}
+
+/* El corazón se agrupa junto al carrito (a su izquierda) */
+.cabecera__fav {
+  margin-left: auto;
 }
 
 .cabecera__icono {
